@@ -10,5 +10,9 @@ public class Tester {
             System.out.println(s+", " );
         }
         pm.printStarPyramid(9);
+        pm.printNumberPyramid(10);
+        String input = "89774560";
+        System.out.println("Is this string("+input+") a Number: "+pm.isItANumber(input));
+        pm.launchApplication("/Applications/Notes.app/Contents/MacOS/Notes");
     }
 }
