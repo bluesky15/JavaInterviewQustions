@@ -1,14 +1,13 @@
 package com.lkb.questions;
 
-import com.sun.xml.internal.xsom.impl.scd.Iterators;
-
 import java.io.IOException;
 import java.util.Arrays;
 
 public class ProgramManager {
-    public static final String REVERSE_INGINE_SB = "API";
-    public static final String REVERSE_INGINE_ITR = "ITERATIVE";
-    public static final String REVERSE_INGINE_REC = "RECURSIVE";
+    public static final String REVERSE_ENGINE_SB = "API";
+    public static final String REVERSE_ENGINE_ITR = "ITERATIVE";
+    public static final String REVERSE_ENGINE_REC = "RECURSIVE";
+
 
     public ProgramManager() {
     }
@@ -127,12 +126,14 @@ public class ProgramManager {
     public String revString(String input, String engine) {
         String output = "";
         switch (engine) {
-            case REVERSE_INGINE_SB:
+            case REVERSE_ENGINE_SB:
                 output = revStrUsingSB(input);
                 break;
-            case REVERSE_INGINE_REC:
+            case REVERSE_ENGINE_REC:
+                output = revStrUsingRecursion(input);
                 break;
-            case REVERSE_INGINE_ITR:
+            case REVERSE_ENGINE_ITR:
+                output = revStrUsingIteration(input);
                 break;
 
             default:
@@ -141,9 +142,42 @@ public class ProgramManager {
         return output;
     }
 
-    public String revStrUsingSB(String str) {
+    /**
+     * @param input
+     * @return
+     */
+    private String revStrUsingRecursion(String input) {
+        if ((null == input) || (input.length() <= 1)) {
+            return input;
+        }
+
+        return revStrUsingRecursion(input.substring(1)) + input.charAt(0);
+    }
+
+    /**
+     * Method to reverse the string using StringBuffer.
+     *
+     * @param str
+     * @return
+     */
+    private String revStrUsingSB(String str) {
         StringBuffer sb = new StringBuffer(str);
         return sb.reverse().toString();
 
     }
+
+    /**
+     * Method to reverse the string using the iteration logic.
+     *
+     * @return
+     */
+    private String revStrUsingIteration(String str) {
+        char[] strArray = str.toCharArray();
+        String revStr = "";
+        for (int i = strArray.length - 1; i >= 0; i--) {
+            revStr = revStr + strArray[i];
+        }
+        return revStr;
+    }
+
 }
