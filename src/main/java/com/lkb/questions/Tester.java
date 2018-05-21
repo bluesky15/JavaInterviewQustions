@@ -14,5 +14,6 @@ public class Tester {
         String input = "89774560";
         System.out.println("Is this string("+input+") a Number: "+pm.isItANumber(input));
         pm.launchApplication("/Applications/Notes.app/Contents/MacOS/Notes");
+        System.out.println(pm.revString("new branch",""));
     }
 }

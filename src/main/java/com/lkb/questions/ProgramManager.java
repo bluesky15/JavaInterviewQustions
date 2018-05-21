@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class ProgramManager {
+    public static final String REVERSE_INGINE_SB = "API";
+    public static final String REVERSE_INGINE_ITR = "ITERATIVE";
+    public static final String REVERSE_INGINE_REC = "RECURSIVE";
+
     public ProgramManager() {
     }
 
@@ -90,6 +94,7 @@ public class ProgramManager {
 
     /**
      * This method checks the string is a number or not.
+     *
      * @param input
      * @return
      */
@@ -102,13 +107,43 @@ public class ProgramManager {
 
         return true;
     }
-    public void launchApplication(String name){
+
+    public void launchApplication(String name) {
         Runtime runtime = Runtime.getRuntime();
         try {
             runtime.exec(name);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    /**
+     * Method to reverse a string.
+     *
+     * @param input
+     * @return
+     */
+    public String revString(String input, String engine) {
+        String output = "";
+        switch (engine) {
+            case REVERSE_INGINE_SB:
+                output = revStrUsingSB(input);
+                break;
+            case REVERSE_INGINE_REC:
+                break;
+            case REVERSE_INGINE_ITR:
+                break;
+
+            default:
+                output = revStrUsingSB(input);
+        }
+        return output;
+    }
+
+    public String revStrUsingSB(String str) {
+        StringBuffer sb = new StringBuffer(str);
+        return sb.reverse().toString();
 
     }
 }
