@@ -1,7 +1,10 @@
 package com.lkb.questions;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.*;
 
 public class ProgramManager {
     public static final String REVERSE_ENGINE_SB = "API";
@@ -178,6 +181,60 @@ public class ProgramManager {
             revStr = revStr + strArray[i];
         }
         return revStr;
+    }
+
+    public String[] findDuplicateString(String[] list) {
+        List<String> duplicates = new ArrayList<>();
+        for (int i = 0; i < list.length; i++) {
+            for (int j = i + 1; j < list.length; j++) {
+                if (list[i].equals(list[j]) && (i != j)) {
+                    duplicates.add(list[j]);
+                }
+
+            }
+        }
+        return duplicates.toArray(new String[0]);
+    }
+
+    public String[] findDuplicateString2(String[] list) {
+        List<String> duplicates = new ArrayList<>();
+        Set<String> set = new HashSet<>();
+        for (String s : list) {
+            if (!set.add(s)) {
+                duplicates.add(s);
+            }
+        }
+        return duplicates.toArray(new String[0]);
+    }
+
+    public String[] readJsonArray(File file) {
+        ObjectMapper mapper = new ObjectMapper();
+        Animals obj = new Animals();
+        try {
+            obj = mapper.readValue(file, Animals.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return obj.getAnimalList();
+    }
+
+    /**
+     * Method to remove spaces from a string.
+     *
+     * @param str
+     * @return
+     */
+    public String removeSpaces(String str) {
+        final String[] filteredString = {""};
+        str.chars().mapToObj(e -> (char) e)
+                .filter(e -> e.compareTo(' ') != 0)
+                .forEach(e -> filteredString[0] += e);
+        return filteredString[0];
+    }
+
+    public <E> List<E> findCommonElement(List<E> a, List<E> b) {
+        a.retainAll(b);
+        return a;
     }
 
 }

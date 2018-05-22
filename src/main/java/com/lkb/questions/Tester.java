@@ -2,7 +2,7 @@ package com.lkb.questions;
 
 public class Tester {
     public static void main(String[] args) {
- //       String[] list = new String[]{"Mango", "Banana", "Apple", "Orange", "Grapes","Avocado","Mango", "Banana", "Apple", "Orange", "Grapes","Avocado"};
+        String[] list = new String[]{"Mango", "Banana", "Apple", "Orange", "Grapes", "Avocado", "Banana", "Avocado"};
         ProgramManager pm = new ProgramManager();
 //        list = pm.naturalSort(list);
 //        for (String s : list
@@ -16,6 +16,21 @@ public class Tester {
 //        pm.launchApplication("/Applications/Notes.app/Contents/MacOS/Notes");
 //        System.out.println(pm.revString("new branch",pm.REVERSE_INGINE_ITR));
 //        System.out.println(pm.revStrUsingRecursion("Hello"));
+//        list = pm.findDuplicateString(list);
+//        for (int i = 0; i < list.length; i++) {
+//            String s = list[i];
+//            System.out.println(s);
+//        }
+//        File jsonFile = new File("D:\\Code\\JavaInterviewQuestion\\JavaInterviewQustions\\src\\main\\resources\\animal.json");
+//        String[] dataList = pm.readJsonArray(jsonFile);
+//        Arrays.stream(dataList).forEach(System.out::println);
+//        System.out.println("Output String :" + pm.removeSpaces(" A b so l ut e"));
+//        List<String> a = new ArrayList<>(Arrays.asList(new String[]{"One", "Two", "Four"}));
+//        List<String> b = new ArrayList<>(Arrays.asList(new String[]{"One", "Two", "Three"}));
+//        ArrayList c = new ArrayList<>(Arrays.asList(new Integer[]{ 1,2,3,4,5,6,7,8,9,10 }));
+//        ArrayList d = new ArrayList<>(Arrays.asList(new Integer[] {1, 2, 3}));
+//        System.out.println(pm.findCommonElement(a, b));
+//        System.out.println(pm.findCommonElement(c, d));
 
     }
 }
