@@ -31,6 +31,11 @@ public class Tester {
 //        ArrayList d = new ArrayList<>(Arrays.asList(new Integer[] {1, 2, 3}));
 //        System.out.println(pm.findCommonElement2(a, b));
 //        System.out.println(pm.findCommonElement2(c, d));
+//        String number ="157";
+//        pm.isArmstrongNumber(number);
+//        int number = 103450;
+
+        //(number+"").chars().mapToObj(e -> (char) e).map(e -> Integer.parseInt(""+e)).forEach(System.out::println);
 
     }
 }

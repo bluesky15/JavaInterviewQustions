@@ -269,8 +269,51 @@ public class ProgramManager {
 
     }
 
-
-    public boolean isArraysEqual() {
-        return false;
+    /**
+     * Method to check two arrays are same or not.
+     *
+     * @param array1
+     * @param array2
+     * @return
+     */
+    public boolean isArraysEqual(String[] array1, String[] array2) {
+        return Arrays.equals(array1, array2);
     }
+
+    public boolean isArraysEqual2(String[] array1, String[] array2) {
+        boolean isEqual = true;
+        if (array1.length == array2.length) {
+            for (int i = 0; i < array1.length; i++) {
+                if (array1[i] != array2[i]) {
+                    isEqual = false;
+                }
+
+            }
+        } else {
+            isEqual = false;
+        }
+        return isEqual;
+    }
+
+    private static boolean checkBinary(Character e) {
+        return !(e.compareTo('1') == 0 || e.compareTo('0') == 0);
+    }
+
+    /**
+     * @param strNumber
+     */
+    public boolean isNumberBinary(String strNumber) {
+        return !(strNumber.chars().mapToObj(e -> (char) e)
+                .anyMatch(ProgramManager::checkBinary));
+    }
+
+    public boolean isArmstrongNumber(String number) {
+        if (Integer.parseInt(number) == number.chars()
+                .map(n -> n - '0')
+                .map(n ->(int) Math.pow(Integer.parseInt("" + n),3))
+                .sum())
+            return true;
+        else return false;
+    }
+
 }
