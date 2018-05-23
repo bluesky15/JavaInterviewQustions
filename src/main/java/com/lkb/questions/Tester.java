@@ -2,8 +2,8 @@ package com.lkb.questions;
 
 public class Tester {
     public static void main(String[] args) {
-        String[] list = new String[]{"Mango", "Banana", "Apple", "Orange", "Grapes", "Avocado", "Banana", "Avocado"};
         ProgramManager pm = new ProgramManager();
+//        String[] list = new String[]{"Mango", "Banana", "Apple", "Orange", "Grapes", "Avocado", "Banana", "Avocado"};
 //        list = pm.naturalSort(list);
 //        for (String s : list
 //                ) {
@@ -29,8 +29,8 @@ public class Tester {
 //        List<String> b = new ArrayList<>(Arrays.asList(new String[]{"One", "Two", "Three"}));
 //        ArrayList c = new ArrayList<>(Arrays.asList(new Integer[]{ 1,2,3,4,5,6,7,8,9,10 }));
 //        ArrayList d = new ArrayList<>(Arrays.asList(new Integer[] {1, 2, 3}));
-//        System.out.println(pm.findCommonElement(a, b));
-//        System.out.println(pm.findCommonElement(c, d));
+//        System.out.println(pm.findCommonElement2(a, b));
+//        System.out.println(pm.findCommonElement2(c, d));
 
     }
 }

@@ -232,9 +232,45 @@ public class ProgramManager {
         return filteredString[0];
     }
 
+    /**
+     * This method retains the elements which are common in two Lists.
+     *
+     * @param a
+     * @param b
+     * @param <E>
+     * @return
+     */
     public <E> List<E> findCommonElement(List<E> a, List<E> b) {
         a.retainAll(b);
         return a;
     }
 
+    /**
+     * This method retains the elements which are common in two Lists.
+     * It do not use the inbuilt API. Uses the iteration.
+     *
+     * @param a
+     * @param b
+     * @param <E>
+     * @return
+     */
+    public <E> List<E> findCommonElement2(List<E> a, List<E> b) {
+        List<E> list = new ArrayList<>();
+        for (int i = 0; i < a.size(); i++) {
+            for (int j = 0; j < b.size(); j++) {
+                if (a.get(i).equals(b.get(j))) {
+                    list.add(a.get(i));
+                }
+
+            }
+
+        }
+        return list;
+
+    }
+
+
+    public boolean isArraysEqual() {
+        return false;
+    }
 }
