@@ -88,10 +88,11 @@ class ProgramManagerTest {
     @Test
     @DisplayName("Test the method isArmstrongNumber")
     void testIsArmstrongNumber(){
-        String number ="111";
-        String number2 ="153";
-
-        assertEquals(false, pm.isArmstrongNumber(number));
-        assertEquals(true, pm.isArmstrongNumber(number2));
+        assertEquals(false, pm.isArmstrongNumber("111"));
+        assertEquals(true, pm.isArmstrongNumber("153"));
+        assertEquals(true, pm.isArmstrongNumber("371"));
+        assertEquals(true, pm.isArmstrongNumber("54748"));
+        assertEquals(false, pm.isArmstrongNumber("1674"));
+        assertEquals(true, pm.isArmstrongNumber("9474"));
     }
 }

@@ -326,9 +326,10 @@ public class ProgramManager {
     }
 
     public boolean isArmstrongNumber(String number) {
+        int exponent = number.length();
         if (Integer.parseInt(number) == number.chars()
                 .map(n -> n - '0')
-                .map(n -> (int) Math.pow(Integer.parseInt("" + n), 3))
+                .map(n -> (int) Math.pow(Integer.parseInt("" + n), exponent))
                 .sum())
             return true;
         else return false;
@@ -361,12 +362,13 @@ public class ProgramManager {
 
     /**
      * Method to count Number of char in a input string.
+     *
      * @param str
      * @return
      */
     public HashMap<Character, Integer> getCharCounts(String str) {
         HashMap<Character, Integer> hm = new HashMap<>();
-        final int[] count = new int[] {0};
+        final int[] count = new int[]{0};
         str.chars().forEach(ch -> {
             count[0] = hm.get((char) ch) != null ? hm.get((char) ch) : 0;
             hm.put((char) ch, count[0] + 1);
