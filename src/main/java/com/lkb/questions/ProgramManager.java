@@ -110,6 +110,12 @@ public class ProgramManager {
         return true;
     }
 
+    /**
+     * This method demonstrate how you can start an out side application using
+     * Java runtime mehtod.
+     *
+     * @param name
+     */
     public void launchApplication(String name) {
         Runtime runtime = Runtime.getRuntime();
         try {
@@ -183,6 +189,12 @@ public class ProgramManager {
         return revStr;
     }
 
+    /**
+     * This method is for finding the duplicate element in an array.
+     *
+     * @param list
+     * @return
+     */
     public String[] findDuplicateString(String[] list) {
         List<String> duplicates = new ArrayList<>();
         for (int i = 0; i < list.length; i++) {
@@ -196,6 +208,12 @@ public class ProgramManager {
         return duplicates.toArray(new String[0]);
     }
 
+    /**
+     * This method is for finding the duplicate element in an array.
+     *
+     * @param list
+     * @return
+     */
     public String[] findDuplicateString2(String[] list) {
         List<String> duplicates = new ArrayList<>();
         Set<String> set = new HashSet<>();
@@ -310,10 +328,49 @@ public class ProgramManager {
     public boolean isArmstrongNumber(String number) {
         if (Integer.parseInt(number) == number.chars()
                 .map(n -> n - '0')
-                .map(n ->(int) Math.pow(Integer.parseInt("" + n),3))
+                .map(n -> (int) Math.pow(Integer.parseInt("" + n), 3))
                 .sum())
             return true;
         else return false;
     }
 
+    /**
+     * This method returns largest number in an array.
+     *
+     * @param list
+     * @return
+     */
+    public int largestNumberInArray(int[] list) {
+        return Arrays.stream(list).sorted().reduce((int first, int second) -> second).orElse(0);
+    }
+
+    /**
+     * Method to find second largest element of an int array.
+     *
+     * @param list
+     * @return
+     */
+    public int secondLargestNumberInArray(int[] list) {
+        int size = list.length;
+        return Arrays.stream(list)
+                .sorted()
+                .skip(size - 2)
+                .findFirst()
+                .getAsInt();
+    }
+
+    /**
+     * Method to count Number of char in a input string.
+     * @param str
+     * @return
+     */
+    public HashMap<Character, Integer> getCharCounts(String str) {
+        HashMap<Character, Integer> hm = new HashMap<>();
+        final int[] count = new int[] {0};
+        str.chars().forEach(ch -> {
+            count[0] = hm.get((char) ch) != null ? hm.get((char) ch) : 0;
+            hm.put((char) ch, count[0] + 1);
+        });
+        return hm;
+    }
 }

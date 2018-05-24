@@ -36,6 +36,9 @@ public class Tester {
 //        int number = 103450;
 
         //(number+"").chars().mapToObj(e -> (char) e).map(e -> Integer.parseInt(""+e)).forEach(System.out::println);
+        //pm.largestNumberInArray(new int[]{1,8,5,9,2,3,7,55});
+        //System.out.println(pm.secondLargestNumberInArray(new int[]{1,8,5,9,2,44,3,7,55}));
+        System.out.println(pm.getCharCounts("Hello world"));
 
     }
 }
