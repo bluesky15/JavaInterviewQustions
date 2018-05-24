@@ -34,11 +34,17 @@ public class Tester {
 //        String number ="157";
 //        pm.isArmstrongNumber(number);
 //        int number = 103450;
+//
+//        (number+"").chars().mapToObj(e -> (char) e).map(e -> Integer.parseInt(""+e)).forEach(System.out::println);
+//        pm.largestNumberInArray(new int[]{1,8,5,9,2,3,7,55});
+//        System.out.println(pm.secondLargestNumberInArray(new int[]{1,8,5,9,2,44,3,7,55}));
+//        System.out.println(pm.getCharCounts("Hello world"));
+//        for (int i = 0; i < 200; i++) {
+//            System.out.println(pm.generateRandomNumber2(300));
+//        }
+//        pm.isAnagram("keep", "peek");
+//        System.out.println(pm.getDuplicateChar("J2EE"));
 
-        //(number+"").chars().mapToObj(e -> (char) e).map(e -> Integer.parseInt(""+e)).forEach(System.out::println);
-        //pm.largestNumberInArray(new int[]{1,8,5,9,2,3,7,55});
-        //System.out.println(pm.secondLargestNumberInArray(new int[]{1,8,5,9,2,44,3,7,55}));
-        System.out.println(pm.getCharCounts("Hello world"));
 
     }
 }

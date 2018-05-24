@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class ProgramManager {
     public static final String REVERSE_ENGINE_SB = "API";
@@ -374,5 +375,88 @@ public class ProgramManager {
             hm.put((char) ch, count[0] + 1);
         });
         return hm;
+    }
+
+    /**
+     * This method generates random number with a specified range.
+     *
+     * @param range
+     * @return
+     */
+    public int generateRandomNumber(int range) {
+        return (int) (Math.random() * range);
+    }
+
+    /**
+     * This method generates random number with a specified range.
+     *
+     * @param range
+     * @return
+     */
+    public int generateRandomNumber2(int range) {
+        Random random = new Random();
+        return random.nextInt(range);
+    }
+
+    /**
+     * This method checks the string for Anagram.
+     * (Two strings are called anagrams if they contain
+     * same set of characters but in different order.)
+     *
+     * @param str1
+     * @param str2
+     * @return
+     */
+    public boolean isAnagram(String str1, String str2) {
+        return ((str1
+                .replaceAll("\\s", "")
+                .toLowerCase()
+                .codePoints()
+                .sorted()
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString()
+                .contentEquals(str2
+                        .replaceAll("\\s", "")
+                        .toLowerCase()
+                        .codePoints()
+                        .sorted()
+                        .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                        .toString())));
+    }
+
+    /**
+     * This method will return the duplicate element in a HashMap.
+     * eg.- if the sting is "J2EE" the return value will be like {2=0, E=1, J=0}
+     * which means only E is repeated once or Only 2 'E' character available in
+     * supplied string.
+     *
+     * @param str
+     * @return
+     */
+    public HashMap<Character, Integer> getDuplicateChar(String str) {
+        HashMap<Character, Integer> hm = new HashMap<>();
+        final int[] count = new int[]{-1};
+        str.chars().forEach(ch -> {
+            count[0] = hm.get((char) ch) != null ? hm.get((char) ch) : -1;
+            hm.put((char) ch, count[0] + 1);
+        });
+        return hm;
+    }
+
+    /**
+     * Method to replace all the Vowels from a string.
+     * This method uses replaceAll method with a regular expression.
+     *
+     * @param str
+     * @return
+     */
+    public String replaceAllVowels(String str) {
+        return str.replaceAll("[AEIOUaeiou]", "");
+    }
+
+    public static int[] revIntArray(int[] inputArray) {
+        return IntStream.range(0, inputArray.length)
+                .map(i -> inputArray[inputArray.length - 1 - i])
+                .toArray();
     }
 }
