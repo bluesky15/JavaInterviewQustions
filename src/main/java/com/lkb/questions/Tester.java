@@ -45,8 +45,6 @@ public class Tester {
 //        pm.isAnagram("keep", "peek");
 //        System.out.println(pm.getDuplicateChar("J2EE"));
 //        System.out.println( pm.revEachWordInAString("Java is Excellent"));
-        System.out.println(pm.sumOfAllDigit(934559180));
-
-
+//        System.out.println(pm.sumOfAllDigit(934559180));
     }
 }
