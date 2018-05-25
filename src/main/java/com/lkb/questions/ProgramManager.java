@@ -1,6 +1,7 @@
 package com.lkb.questions;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import sun.jvm.hotspot.tools.jcore.PackageNameFilter;
 
 import java.io.File;
 import java.io.IOException;
@@ -459,4 +460,41 @@ public class ProgramManager {
                 .map(i -> inputArray[inputArray.length - 1 - i])
                 .toArray();
     }
+
+    /**
+     * Method to reverse each words in a string.
+     * @param str
+     * @return
+     */
+    public String revEachWordInAString(String str) {
+        return Arrays.stream(str.split(" "))
+                .map(ProgramManager::revStr)
+                .reduce((x, y) -> x + " " + y)
+                .orElse("Error");
+    }
+
+    /**
+     * Method to reverse one string which contains no space.
+     * or - this mehod only revers a single word.
+     * @param str
+     * @return
+     */
+    private static String revStr(String str) {
+        byte[] strAsByteArray = str.getBytes();
+        byte[] result = new byte[strAsByteArray.length];
+        IntStream.range(0, strAsByteArray.length).forEach(i -> result[i] = strAsByteArray[strAsByteArray.length - i - 1]);
+        return new String(result);
+    }
+
+    /**
+     * This method will add all the digits of an Integer passed.
+     * @param inputNumber
+     * @return
+     */
+    public int sumOfAllDigit(int inputNumber){
+     return String.valueOf(inputNumber).chars()
+             .map(c->Integer.parseInt(""+(char)c))
+             .reduce((x,y)->x+y).orElse(0);
+    }
+
 }
