@@ -462,6 +462,7 @@ public class ProgramManager {
 
     /**
      * Method to reverse each words in a string.
+     *
      * @param str
      * @return
      */
@@ -475,6 +476,7 @@ public class ProgramManager {
     /**
      * Method to reverse one string which contains no space.
      * or - this mehod only revers a single word.
+     *
      * @param str
      * @return
      */
@@ -487,13 +489,49 @@ public class ProgramManager {
 
     /**
      * This method will add all the digits of an Integer passed.
+     *
      * @param inputNumber
      * @return
      */
-    public int sumOfAllDigit(int inputNumber){
-     return String.valueOf(inputNumber).chars()
-             .map(c->Integer.parseInt(""+(char)c))
-             .reduce((x,y)->x+y).orElse(0);
+    public int sumOfAllDigit(int inputNumber) {
+        return String.valueOf(inputNumber).chars()
+                .map(c -> Integer.parseInt("" + (char) c))
+                .reduce((x, y) -> x + y).orElse(0);
     }
 
+    public static int[] survivalCells(int[] input1, int[] input2) {
+        if (!(input1[0] <= 2000 && input1[0] >= 1 && input1[1] <= 2000 && input1[1] >= 1))
+            return (new int[]{0});
+
+        int fieldSize = input1[0] * input1[1];
+        int survivingPlantType1 = input1[2];
+        int survivingPlantType2 = input1[3];
+        int emptyCellType1 = input1[4];
+        int emptyCellType2 = input1[5];
+        int generation = input1[6];
+        int[] initialState = input2;
+        int[] fieldStateAfterGeneration = new int[fieldSize];
+        for (int i = 0; i < generation; i++) {
+            int i1 = fieldStateAfterGeneration[i];
+
+        }
+
+        return null;
+    }
+
+//    public static int[] getNeighbors(int size, int position){
+//       return null;
+//    }
+
+    public int[][] getMatrix(int row, int col, int[] elements) {
+        int[][] matrix = new int[row][col];
+        int count = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                matrix[i][j] = elements[count];
+                count++;
+            }
+        }
+        return matrix;
+    }
 }
