@@ -47,22 +47,24 @@ public class Tester {
 //        System.out.println( pm.revEachWordInAString("Java is Excellent"));
 //        System.out.println(pm.sumOfAllDigit(934559180));
 //
-        Matrix2D matrix = new Matrix2D(4, 3, new int[]{
-                0, 2, 1,
-                1, 5, 2,
-                6, 1, 9,
-                5, 4, 8});
-        System.out.println(matrix);
-        int[] cornerElements = Matrix2D.getCornerElements(matrix);
+//        Matrix2D matrix = new Matrix2D(4, 3, new int[]{
+//                0, 2, 1,
+//                1, 5, 2,
+//                6, 1, 9,
+//                5, 4, 8});
+//        System.out.println(matrix);
+//        int[] cornerElements = Matrix2D.getCornerElements(matrix);
 //        for (int i = 0; i < cornerElements.length; i++) {
 //            System.out.println(cornerElements[i]);
 //        }
-        int[] ne = Matrix2D.getNeighbourElements(matrix,1,1);
-        for (int i = 0; i < ne.length; i++) {
-            int i1 = ne[i];
-            if(i1!=-1)
-            System.out.println(i1);
-        }
+//        int[] ne = Matrix2D.getNeighbourElements(matrix,1,1);
+//        for (int i = 0; i < ne.length; i++) {
+//            int i1 = ne[i];
+//            if(i1!=-1)
+//            System.out.println(i1);
+//        }
+//
+//        System.out.println(pm.getWordCount("    Hello    world   "));
 
     }
 }
