@@ -120,7 +120,7 @@ public class Matrix2D {
      * @param index_j
      * @return
      */
-    public static int[] getNeighbourElements(Matrix2D matrix, int index_i, int index_j) {
+    public int[] getNeighbourElements(Matrix2D matrix, int index_i, int index_j) {
         int count = 0;
         int count2 = 0;
         int[] neighbourElements = new int[]{-1, -1, -1, -1, -1, -1, -1, -1};
@@ -135,11 +135,78 @@ public class Matrix2D {
                 index_i + 1, index_j + 1,
         };
         for (int i = 0; i < (neighbourIndexList.length / 2); i++) {
-            if (neighbourIndexList[count] >= 0 && neighbourIndexList[count + 1] >= 0) {
-                neighbourElements[count2] = matrix.getMatrix()[neighbourIndexList[count++]][neighbourIndexList[count++]];
+            if ((neighbourIndexList[count] >= 0 && neighbourIndexList[count + 1] >= 0) && (neighbourIndexList[count] < row && neighbourIndexList[count+1] < col)) {
+                int x = neighbourIndexList[count++];
+                int y = neighbourIndexList[count++];
+                neighbourElements[count2] = matrix.getMatrix()[x][y];
                 count2++;
             } else count = count + 2;
         }
         return neighbourElements;
+    }
+
+//    public static int[] implementSurvivingRule(Matrix2D matrix, int index_i, int index_j, int s1, int s2, int b1, int b2, int filedValue) {
+//        int count = 0;
+//        int count2 = 0;
+//        int[] neighbourElements = new int[]{-1, -1, -1, -1, -1, -1, -1, -1};
+//        int[] neighbourIndexList = new int[]{
+//                index_i - 1, index_j - 1,
+//                index_i - 1, index_j,
+//                index_i - 1, index_j + 1,
+//                index_i, index_j - 1,
+//                index_i, index_j + 1,
+//                index_i + 1, index_j - 1,
+//                index_i + 1, index_j,
+//                index_i + 1, index_j + 1,
+//        };
+//        for (int i = 0; i < (neighbourIndexList.length / 2); i++) {
+//            if (neighbourIndexList[count] >= 0 && neighbourIndexList[count + 1] >= 0) {
+//                int x = neighbourIndexList[count++];
+//                int y = neighbourIndexList[count++];
+//                if (matrix.getMatrix()[x][y] == filedValue) {
+//                    neighbourElements[count2] = matrix.getMatrix()[x][y];
+//                    count2++;
+//                }
+//
+//            } else count = count + 2;
+//        }
+//        return neighbourElements;
+//    }
+
+    public int getMatrixIndexValue(int indexI, int indexJ) {
+        int matrixElement = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (i == indexI && j == indexJ)
+                    matrixElement = elements[indexI][indexJ];
+            }
+
+        }
+        return matrixElement;
+    }
+
+    public void setMatrixIndexValue(int indexI, int indexJ, int value) {
+        int matrixElement = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (i == indexI && j == indexJ)
+                    elements[indexI][indexJ] = value;
+            }
+
+        }
+    }
+
+    public int[] getMatrixElements() {
+        int[] ele = new int[row * col];
+        int count = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                ele[count] = elements[i][j];
+                count++;
+
+            }
+
+        }
+        return ele;
     }
 }

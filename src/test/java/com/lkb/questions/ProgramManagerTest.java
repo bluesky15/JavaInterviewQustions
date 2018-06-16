@@ -23,70 +23,25 @@ class ProgramManagerTest {
         pm = null;
     }
 
-    //    @Test
-//    void naturalSort() {
-//    }
-//
-//    @Test
-//    void printStarPyramid() {
-//    }
-//
-//    @Test
-//    void printNumberPyramid() {
-//    }
-//
-//    @Test
-//    void isItANumber() {
-//    }
-//
-//    @Test
-//    void launchApplication() {
-//    }
-//
-//    @Test
-//    void revString() {
-//    }
-//
-//    @Test
-//    void findDuplicateString() {
-//    }
-//
-//    @Test
-//    void findDuplicateString2() {
-//    }
-//
-//    @Test
-//    void readJsonArray() {
-//    }
-//
-//    @Test
-//    void removeSpaces() {
-//    }
-//
-//    @Test
-//    void findCommonElement() {
-//    }
-//
-//    @Test
-//    void findCommonElement2() {
-//    }
+
+
     @DisplayName(" Test both arrays are same or not")
     @Test
     void isArraysEqual() {
         String[] array1 = new String[]{"1", "2", "3"};
         String[] array2 = new String[]{"1", "2", "3", "4"};
         String[] array3 = new String[]{"1", "2", "3"};
-        assertEquals(pm.isArraysEqual(array1, array2), false);
-        assertEquals(pm.isArraysEqual(array1, array3), true);
+        assertEquals(false, pm.isArraysEqual(array1, array2));
+        assertEquals(true, pm.isArraysEqual(array1, array3));
     }
 
     @Test
-    @DisplayName("is the number binary!")
+    @DisplayName("Test for is the number binary!")
     void binaryNumberCheck() {
         String number = "101016010";
         String number2 = "1000101110";
-        assertEquals(pm.isNumberBinary(number), false);
-        assertEquals(pm.isNumberBinary(number2), true);
+        assertEquals(false, pm.isNumberBinary(number));
+        assertEquals(true, pm.isNumberBinary(number2));
     }
 
     @Test
@@ -125,4 +80,14 @@ class ProgramManagerTest {
         assertEquals(true, Arrays.equals(pm.revIntArray(new int[]{1, 3, 5, 6, 4}), new int[]{4, 6, 5, 3, 1}));
         assertEquals(false, Arrays.equals(pm.revIntArray(new int[]{1, 3, 5, 10, 4}), new int[]{1, 3, 5, 10, 4}));
     }
+
+    @Test
+    @DisplayName("Test for harshad or Niven number")
+    void testIsHarshadOrNivenNumber() {
+        assertEquals(true, pm.isHarshadOrNivenNumber(153));
+        assertEquals(true, pm.isHarshadOrNivenNumber(21));
+        assertEquals(false, pm.isHarshadOrNivenNumber(71));
+
+    }
+
 }

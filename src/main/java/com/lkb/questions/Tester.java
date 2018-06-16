@@ -1,5 +1,8 @@
 package com.lkb.questions;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Tester {
     public static void main(String[] args) {
         ProgramManager pm = new ProgramManager();
@@ -65,6 +68,29 @@ public class Tester {
 //        }
 //
 //        System.out.println(pm.getWordCount("    Hello    world   "));
+//        long[] fibnum = pm.fibGen(33, 0, 1);
+//        for (int i = 0; i < fibnum.length; i++) {
+//            System.out.println(fibnum[i]);
+//        }
+//        System.out.println(pm.isNumberBelongToFibonacciSeries(4123));
+//        ArrayList<Integer> num = (ArrayList<Integer>) pm.removeDuplicateElement(Arrays.asList(new Integer[]{
+//                1,1,2,3
+//        }));
+//        for (int i = 0; i < num.size(); i++) {
+//            System.out.println(num.get(i));
+//        }
+        int[] r = pm.survivalcells(new int[]{6, 6, 2, 3, 3, 3,3}, new int[]{0, 0, 0, 0, 0, 0,
+                0, 1, 0, 0, 0, 0,
+                0, 1, 1, 0, 1, 1,
+                0, 0, 0, 1, 1, 1,
+                0, 0, 0, 0, 0, 1,
+                0, 0, 0, 0, 0, 1});
+        for (int i = 0; i < r.length; i++) {
+            int i1 = r[i];
+            System.out.println(i1);
+
+        }
+
 
     }
 }

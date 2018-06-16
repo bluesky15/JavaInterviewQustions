@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -207,6 +208,19 @@ public class ProgramManager {
             }
         }
         return duplicates.toArray(new String[0]);
+    }
+
+    /**
+     * This method removes the duplicate elements.
+     *
+     * @param list
+     * @param <E>
+     * @return
+     */
+    public <E> List<E> removeDuplicateElement(List<E> list) {
+        List<E> list2 = new ArrayList<>();
+        list.stream().distinct().forEach(e -> list2.add(e));
+        return list2;
     }
 
     /**
@@ -499,26 +513,6 @@ public class ProgramManager {
                 .reduce((x, y) -> x + y).orElse(0);
     }
 
-    public static int[] survivalCells(int[] input1, int[] input2) {
-        if (!(input1[0] <= 2000 && input1[0] >= 1 && input1[1] <= 2000 && input1[1] >= 1))
-            return (new int[]{0});
-
-        int fieldSize = input1[0] * input1[1];
-        int survivingPlantType1 = input1[2];
-        int survivingPlantType2 = input1[3];
-        int emptyCellType1 = input1[4];
-        int emptyCellType2 = input1[5];
-        int generation = input1[6];
-        int[] initialState = input2;
-        int[] fieldStateAfterGeneration = new int[fieldSize];
-        for (int i = 0; i < generation; i++) {
-            int i1 = fieldStateAfterGeneration[i];
-
-        }
-
-        return null;
-    }
-
 
     public int[][] getMatrix(int row, int col, int[] elements) {
         int[][] matrix = new int[row][col];
@@ -534,6 +528,7 @@ public class ProgramManager {
 
     /**
      * Method to count the word in string.
+     *
      * @param string
      * @return
      */
@@ -545,38 +540,130 @@ public class ProgramManager {
 
     /**
      * Swap Characters at position
+     *
      * @param a string value
      * @param i position 1
      * @param j position 2
      * @return swapped string
      */
-    public String swap(String a, int i, int j)
-    {
+    public String swap(String a, int i, int j) {
         char temp;
         char[] charArray = a.toCharArray();
-        temp = charArray[i] ;
+        temp = charArray[i];
         charArray[i] = charArray[j];
         charArray[j] = temp;
         return String.valueOf(charArray);
     }
+
     /**
      * permutation function
+     *
      * @param str string to calculate permutation for
-     * @param l starting index
-     * @param r end index
+     * @param l   starting index
+     * @param r   end index
      */
-    private void permute(String str, int l, int r)
-    {
+    private void permute(String str, int l, int r) {
         if (l == r)
             System.out.println(str);
-        else
-        {
-            for (int i = l; i <= r; i++)
-            {
-                str = swap(str,l,i);
-                permute(str, l+1, r);
-                str = swap(str,l,i);
+        else {
+            for (int i = l; i <= r; i++) {
+                str = swap(str, l, i);
+                permute(str, l + 1, r);
+                str = swap(str, l, i);
             }
         }
+    }
+
+    /**
+     * Method to check if a number is Niven number of not.
+     *
+     * @param number
+     * @return
+     */
+    public boolean isHarshadOrNivenNumber(int number) {
+        int sum = sumOfAllDigit(number);
+        if (number % sum == 0) {
+            return true;
+        } else return false;
+    }
+
+    /**
+     * Method to generate fibonacci numbers.
+     *
+     * @param n
+     * @param t0
+     * @param t1
+     * @return
+     */
+    public long[] fibGen(int n, int t0, int t1) {
+        long[] fibNumbers = new long[n];
+        fibNumbers[0] = t0;
+        fibNumbers[1] = t1;
+        for (int i = 2; i < n; i++) {
+            int next = t0 + t1;
+            t0 = t1;
+            t1 = next;
+            fibNumbers[i] = next;
+        }
+        return fibNumbers;
+    }
+
+    /**
+     * Fibonacci number checking.
+     *
+     * @param num
+     * @return
+     */
+    public boolean isNumberBelongToFibonacciSeries(long num) {
+        long t0 = 0;
+        long t1 = 1;
+        long next = 0;
+        while (next < num) {
+            next = t0 + t1;
+            t0 = t1;
+            t1 = next;
+        }
+        if (next == num) return true;
+        else return false;
+    }
+
+    public int[] survivalCells(int[] input1, int[] input2) {
+        int row = input1[0];
+        int col = input1[1];
+        int s1 = input1[2];
+        int s2 = input1[3];
+        int b1 = input1[4];
+        int b2 = input1[5];
+        int gen = input1[6];
+
+        Matrix2D field = new Matrix2D(row, col, input2);
+        Matrix2D nextGenMatrix = null;
+        for (int g = 0; g < gen; g++) {
+            System.out.println(field);
+            nextGenMatrix = new Matrix2D(row, col);
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    int fieldValue = field.getMatrixIndexValue(i, j);
+                    int[] getNeighbour = field.getNeighbourElements(field, i, j);
+                    int s = 0;
+                    int b = 0;
+                    for (int k = 0; k < getNeighbour.length; k++) {
+                        if (getNeighbour[k] == 0)
+                            b = b + 1;
+                        else if (getNeighbour[k] == 1)
+                            s = s + 1;
+
+                    }
+                    if ((fieldValue == 1 && (s >= s1 && s <= s2)) || (fieldValue == 0 && (s >= b1 && s <= b2))) {
+                        nextGenMatrix.setMatrixIndexValue(i, j, 1);
+                    }
+
+
+                }
+
+            }
+            field = nextGenMatrix;
+        }
+        return field.getMatrixElements();
     }
 }
