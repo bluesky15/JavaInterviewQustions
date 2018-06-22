@@ -2,10 +2,12 @@ package com.lkb.questions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Tester {
     public static void main(String[] args) {
-        ProgramManager pm = new ProgramManager();
+        ProgramManager pm = ProgramManager.getInstance();
 //        String[] list = new String[]{"Mango", "Banana", "Apple", "Orange", "Grapes", "Avocado", "Banana", "Avocado"};
 //        list = pm.naturalSort(list);
 //        for (String s : list
@@ -79,18 +81,25 @@ public class Tester {
 //        for (int i = 0; i < num.size(); i++) {
 //            System.out.println(num.get(i));
 //        }
-        int[] r = pm.survivalcells(new int[]{6, 6, 2, 3, 3, 3,3}, new int[]{0, 0, 0, 0, 0, 0,
-                0, 1, 0, 0, 0, 0,
-                0, 1, 1, 0, 1, 1,
-                0, 0, 0, 1, 1, 1,
-                0, 0, 0, 0, 0, 1,
-                0, 0, 0, 0, 0, 1});
-        for (int i = 0; i < r.length; i++) {
-            int i1 = r[i];
-            System.out.println(i1);
-
-        }
-
-
+//        int[] r = pm.survivalCells(new int[]{6, 6, 2, 3, 3, 3,3}, new int[]{0, 0, 0, 0, 0, 0,
+//                0, 1, 0, 0, 0, 0,
+//                0, 1, 1, 0, 1, 1,
+//                0, 0, 0, 1, 1, 1,
+//                0, 0, 0, 0, 0, 1,
+//                0, 0, 0, 0, 0, 1});
+//        for (int i = 0; i < r.length; i++) {
+//            int i1 = r[i];
+//            System.out.println(i1);
+//
+//        }
+//      pm.generateNumbers(1001).forEach(System.out::println);
+//
+//        final long[] count = new long[]{0};
+//        System.out.println((pm.isDivisibleBy(3, 1000).sum())
+//                + (pm.isDivisibleBy(5, 1000).sum())
+//                - (pm.isDivisibleBy(15, 1000).sum()));
+//
+//
+        System.out.println(pm.sumOfAllMultiplesOfXORY(3,5,1000));
     }
 }

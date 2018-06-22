@@ -15,7 +15,7 @@ class ProgramManagerTest {
 
     @BeforeEach
     void setUp() {
-        pm = new ProgramManager();
+        pm = ProgramManager.getInstance();
     }
 
     @AfterEach

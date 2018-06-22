@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -12,9 +11,17 @@ public class ProgramManager {
     public static final String REVERSE_ENGINE_SB = "API";
     public static final String REVERSE_ENGINE_ITR = "ITERATIVE";
     public static final String REVERSE_ENGINE_REC = "RECURSIVE";
+    public static ProgramManager instance;
 
+    private ProgramManager() {
+    }
 
-    public ProgramManager() {
+    // Its called lazy initialization.
+    synchronized public static ProgramManager getInstance() {
+        if (instance == null) {
+            instance = new ProgramManager();
+        }
+        return instance;
     }
 
     /**
@@ -666,4 +673,29 @@ public class ProgramManager {
         }
         return field.getMatrixElements();
     }
+
+    /**
+     * Generate integer stream with provided range.
+     *
+     * @param range
+     * @return
+     */
+    public IntStream generateNumbers(int range) {
+        return IntStream.range(1, range);
+    }
+
+    public IntStream isDivisibleBy(int divisor, int numberRange) {
+        return generateNumbers(numberRange).filter(i -> i % divisor == 0);
+    }
+
+    public int sumOfAllMultiplesOfXORY(int x, int y, int exclusiveRange){
+        return IntStream.range(1,exclusiveRange)
+                .filter(i->i%x==0)
+                .sum()+ IntStream.range(1,exclusiveRange)
+                .filter(i->i%y==0)
+                .sum() - IntStream.range(1, exclusiveRange)
+                .filter(i->i%(x*y)==0)
+                .sum();
+    }
+
 }
