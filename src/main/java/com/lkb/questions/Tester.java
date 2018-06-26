@@ -100,6 +100,8 @@ public class Tester {
 //                - (pm.isDivisibleBy(15, 1000).sum()));
 //
 //
-        System.out.println(pm.sumOfAllMultiplesOfXORY(3,5,1000));
+//        System.out.println(pm.sumOfAllMultiplesOfXORY(3,5,1000));
+        ParkingSpace space = new ParkingSpace(new int[]{1,4,4,6});
+        System.out.println(space.getAllSquareBlocks());
     }
 }

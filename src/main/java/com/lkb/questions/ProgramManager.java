@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ProgramManager {
@@ -688,14 +689,30 @@ public class ProgramManager {
         return generateNumbers(numberRange).filter(i -> i % divisor == 0);
     }
 
-    public int sumOfAllMultiplesOfXORY(int x, int y, int exclusiveRange){
-        return IntStream.range(1,exclusiveRange)
-                .filter(i->i%x==0)
-                .sum()+ IntStream.range(1,exclusiveRange)
-                .filter(i->i%y==0)
+    public int sumOfAllMultiplesOfXORY(int x, int y, int exclusiveRange) {
+        return IntStream.range(1, exclusiveRange)
+                .filter(i -> i % x == 0)
+                .sum() + IntStream.range(1, exclusiveRange)
+                .filter(i -> i % y == 0)
                 .sum() - IntStream.range(1, exclusiveRange)
-                .filter(i->i%(x*y)==0)
+                .filter(i -> i % (x * y) == 0)
                 .sum();
     }
+
+    public List<Integer> findPrimes(int n) {
+        return IntStream
+                .rangeClosed(0, n)
+                .filter(this::isPrime)
+                .boxed()
+                .collect(Collectors.toList());
+    }
+
+    public boolean isPrime(int num) {
+        if (num == 0 || num == 1) return false;
+        return IntStream
+                .rangeClosed(2, num / 2)
+                .noneMatch(divisor -> num % divisor == 0);
+    }
+
 
 }
