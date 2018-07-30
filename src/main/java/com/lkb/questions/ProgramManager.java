@@ -708,7 +708,7 @@ public class ProgramManager {
     }
 
     public boolean isPrime(int num) {
-        if (num == 0 || num == 1) return false;
+        if (num <= 1) return false;
         return IntStream
                 .rangeClosed(2, num / 2)
                 .noneMatch(divisor -> num % divisor == 0);
