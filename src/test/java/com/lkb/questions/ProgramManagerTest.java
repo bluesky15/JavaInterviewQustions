@@ -90,4 +90,19 @@ class ProgramManagerTest {
 
     }
 
+    @Test
+    @DisplayName("Test for isprime method")
+    void testIsPrimeNumber() {
+        assertEquals(true, pm.isPrime(2));
+        assertEquals(true, pm.isPrime(3));
+        assertEquals(false, pm.isPrime(4));
+        assertEquals(false, pm.isPrime(-1));
+        assertEquals(false, pm.isPrime(1));
+        assertEquals(false, pm.isPrime(0));
+        assertEquals(false, pm.isPrime(-1100));
+        assertEquals(true, pm.isPrime(13));
+
+
+    }
+
 }

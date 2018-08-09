@@ -1,10 +1,7 @@
 package com.lkb.questions;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -104,15 +101,7 @@ public class Tester {
 //
 //
 //        System.out.println(pm.sumOfAllMultiplesOfXORY(3,5,1000));
-        Date d = new Date();
-        System.out.println("welcome");
-
-
+        ParkingSpace space = new ParkingSpace(new int[]{1,4,4,6});
+        System.out.println(space.getAllSquareBlocks());
     }
-
-   public  static void main(int args[]) {
-       System.out.println("hello");
-    }
-
 }
-
