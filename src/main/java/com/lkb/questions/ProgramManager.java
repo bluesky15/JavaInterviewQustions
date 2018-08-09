@@ -456,7 +456,7 @@ public class ProgramManager {
      */
     public HashMap<Character, Integer> getDuplicateChar(String str) {
         HashMap<Character, Integer> hm = new HashMap<>();
-        final int[] count = new int[]{-1};
+        final int[] count = new int[]{0};
         str.chars().forEach(ch -> {
             count[0] = hm.get((char) ch) != null ? hm.get((char) ch) : -1;
             hm.put((char) ch, count[0] + 1);
@@ -688,14 +688,38 @@ public class ProgramManager {
         return generateNumbers(numberRange).filter(i -> i % divisor == 0);
     }
 
-    public int sumOfAllMultiplesOfXORY(int x, int y, int exclusiveRange){
-        return IntStream.range(1,exclusiveRange)
-                .filter(i->i%x==0)
-                .sum()+ IntStream.range(1,exclusiveRange)
-                .filter(i->i%y==0)
+    public int sumOfAllMultiplesOfXORY(int x, int y, int exclusiveRange) {
+        return IntStream.range(1, exclusiveRange)
+                .filter(i -> i % x == 0)
+                .sum() + IntStream.range(1, exclusiveRange)
+                .filter(i -> i % y == 0)
                 .sum() - IntStream.range(1, exclusiveRange)
-                .filter(i->i%(x*y)==0)
+                .filter(i -> i % (x * y) == 0)
                 .sum();
     }
+
+    public List<Integer> findPrimes(List<Integer> n) {
+        List<Integer> primeList = new ArrayList<>();
+       for (Integer x:n){
+           if(isPrime(x)){
+               primeList.add(x);
+           }
+       }
+        return primeList;
+    }
+
+    public static boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i < Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 
 }

@@ -1,7 +1,10 @@
 package com.lkb.questions;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -100,6 +103,16 @@ public class Tester {
 //                - (pm.isDivisibleBy(15, 1000).sum()));
 //
 //
-        System.out.println(pm.sumOfAllMultiplesOfXORY(3,5,1000));
+//        System.out.println(pm.sumOfAllMultiplesOfXORY(3,5,1000));
+        Date d = new Date();
+        System.out.println("welcome");
+
+
     }
+
+   public  static void main(int args[]) {
+       System.out.println("hello");
+    }
+
 }
+
