@@ -714,5 +714,18 @@ public class ProgramManager {
                 .noneMatch(divisor -> num % divisor == 0);
     }
 
+    public boolean isPalindrome(int num) {
+        int temp = num;
+        int sum = 0;
+        while (num > 0) {
+            int remainder = num % 10;
+            sum = (sum * 10) + remainder;
+            num = num / 10;
+
+        }
+        if (temp == sum) return true;
+        else return false;
+    }
+
 
 }

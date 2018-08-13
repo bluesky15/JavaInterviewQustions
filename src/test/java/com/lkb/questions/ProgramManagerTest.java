@@ -105,4 +105,13 @@ class ProgramManagerTest {
 
     }
 
+    @Test
+    @DisplayName(" Test for isPalindrome number")
+    void testIsPalindromeNumber(){
+        assertEquals(true, pm.isPalindrome(121));
+        assertEquals(false, pm.isPalindrome(1214));
+        assertEquals(true, pm.isPalindrome(12321));
+        assertEquals(true, pm.isPalindrome(123454321));
+    }
+
 }
