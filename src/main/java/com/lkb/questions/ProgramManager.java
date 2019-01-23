@@ -3,6 +3,7 @@ package com.lkb.questions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -446,6 +447,17 @@ public class ProgramManager {
                         .toString())));
     }
 
+
+    public String sortAllCharecterOfString(String str){
+        return str.replaceAll("\\s","")
+                .toLowerCase()
+                .codePoints()
+                .sorted()
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+    }
+
+
     /**
      * This method will return the duplicate element in a HashMap.
      * eg.- if the sting is "J2EE" the return value will be like {2=0, E=1, J=0}
@@ -725,6 +737,24 @@ public class ProgramManager {
         }
         if (temp == sum) return true;
         else return false;
+    }
+
+    public void createFile(String fileName, String path, String content) {
+        String msg = content;
+        FileWriter fw = null;
+        File file = new File(path + "" + fileName);
+        try {
+            fw = new FileWriter(file);
+            fw.write(msg);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

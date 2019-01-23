@@ -114,4 +114,11 @@ class ProgramManagerTest {
         assertEquals(true, pm.isPalindrome(123454321));
     }
 
+    @Test
+    @DisplayName("Test for sort all charecter of string")
+    void testSortAllCharecterOfString(){
+        assertEquals("abc",pm.sortAllCharecterOfString("cba"));
+    }
+
+
 }

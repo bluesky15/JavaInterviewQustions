@@ -101,6 +101,7 @@ public class Tester {
 //
 //
 //        System.out.println(pm.sumOfAllMultiplesOfXORY(3,5,1000));
+        pm.createFile("hello.txt","/Users/leo/projects/allprojects/", "Hello world!");
         ParkingSpace space = new ParkingSpace(new int[]{1,4,4,6});
         System.out.println(space.getAllSquareBlocks());
     }
