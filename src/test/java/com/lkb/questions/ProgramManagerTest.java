@@ -24,7 +24,6 @@ class ProgramManagerTest {
     }
 
 
-
     @DisplayName(" Test both arrays are same or not")
     @Test
     void isArraysEqual() {
@@ -107,7 +106,7 @@ class ProgramManagerTest {
 
     @Test
     @DisplayName(" Test for isPalindrome number")
-    void testIsPalindromeNumber(){
+    void testIsPalindromeNumber() {
         assertEquals(true, pm.isPalindrome(121));
         assertEquals(false, pm.isPalindrome(1214));
         assertEquals(true, pm.isPalindrome(12321));
@@ -116,9 +115,22 @@ class ProgramManagerTest {
 
     @Test
     @DisplayName("Test for sort all charecter of string")
-    void testSortAllCharecterOfString(){
-        assertEquals("abc",pm.sortAllCharecterOfString("cba"));
+    void testSortAllCharecterOfString() {
+        assertEquals("abc", pm.sortAllCharacterOfString("cba"));
     }
 
+    @Test
+    @DisplayName("Test for second largest number in an array")
+    void testSecondLargestNumberInArray() {
+        assertEquals(4, pm.secondLargestNumberInArray(new int[]{1, 2, 3, 4, 5}));
+        assertEquals(4, pm.secondLargestNumberInArray(new int[]{4, 2, 1, 3, 5}));
+        assertEquals(4, pm.secondLargestNumberInArray(new int[]{1, 2, 3, 5, 4}));
+    }
 
+    @Test
+    @DisplayName("Test for Max repeating char in string")
+    void testgetMaxReapeatingChInString(){
+        assertEquals('a',pm.getMaxRepeatCharCountInString("aabbaaccaa"));
+        assertEquals('a',pm.getMaxRepeatCharCountInString("abc"));
+    }
 }

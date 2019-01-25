@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -401,6 +403,28 @@ public class ProgramManager {
     }
 
     /**
+     * Returns the Max repeating char in a string
+     * if no repeating then returns first char.
+     *
+     * @param str
+     * @return
+     */
+    public char getMaxRepeatCharCountInString(String str) {
+        AtomicReference<Character> repeatChar = new AtomicReference<>((char) 0);
+        AtomicInteger temp = new AtomicInteger();
+        temp.set(0);
+        HashMap<Character, Integer> hm = getCharCounts(str);
+        hm.forEach((ch, x) -> {
+            if (x > temp.get()) {
+                temp.set(x);
+                repeatChar.set(ch);
+            }
+
+        });
+        return repeatChar.get();
+    }
+
+    /**
      * This method generates random number with a specified range.
      *
      * @param range
@@ -447,9 +471,14 @@ public class ProgramManager {
                         .toString())));
     }
 
-
-    public String sortAllCharecterOfString(String str){
-        return str.replaceAll("\\s","")
+    /**
+     * This methid sort all the character of a string
+     *
+     * @param str
+     * @return
+     */
+    public String sortAllCharacterOfString(String str) {
+        return str.replaceAll("\\s", "")
                 .toLowerCase()
                 .codePoints()
                 .sorted()
@@ -701,6 +730,14 @@ public class ProgramManager {
         return generateNumbers(numberRange).filter(i -> i % divisor == 0);
     }
 
+    /**
+     * Method to find sum of all the multiples of X or Y
+     *
+     * @param x
+     * @param y
+     * @param exclusiveRange
+     * @return
+     */
     public int sumOfAllMultiplesOfXORY(int x, int y, int exclusiveRange) {
         return IntStream.range(1, exclusiveRange)
                 .filter(i -> i % x == 0)
@@ -711,6 +748,12 @@ public class ProgramManager {
                 .sum();
     }
 
+    /**
+     * Method to find the prime number.
+     *
+     * @param n
+     * @return
+     */
     public List<Integer> findPrimes(int n) {
         return IntStream
                 .rangeClosed(0, n)
@@ -726,6 +769,12 @@ public class ProgramManager {
                 .noneMatch(divisor -> num % divisor == 0);
     }
 
+    /**
+     * Method to check for Number is Palindrome or not
+     *
+     * @param num
+     * @return
+     */
     public boolean isPalindrome(int num) {
         int temp = num;
         int sum = 0;
@@ -756,6 +805,5 @@ public class ProgramManager {
             }
         }
     }
-
 
 }
