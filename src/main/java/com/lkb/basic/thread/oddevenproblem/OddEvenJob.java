@@ -1,4 +1,4 @@
-package com.lkb.basic.thread;
+package com.lkb.basic.thread.oddevenproblem;
 
 public class OddEvenJob implements Runnable {
     private int max;
@@ -39,10 +39,10 @@ public class OddEvenJob implements Runnable {
 }
 
 class Printer {
-    private volatile boolean isOdd;
+    private volatile boolean isEven;
 
     synchronized void printEven(int number) {
-        while (isOdd) {
+        while (isEven) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -51,12 +51,12 @@ class Printer {
         }
         System.out.println(Thread.currentThread().getName() + ":" + number);
         //System.out.print(number);
-        isOdd = true;
+        isEven = true;
         notify();
     }
 
     synchronized void printOdd(int number) {
-        while (!isOdd) {
+        while (!isEven) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -65,7 +65,7 @@ class Printer {
         }
         System.out.println(Thread.currentThread().getName() + ":" + number);
         //System.out.print(number);
-        isOdd = false;
+        isEven = false;
         notify();
     }
 }
