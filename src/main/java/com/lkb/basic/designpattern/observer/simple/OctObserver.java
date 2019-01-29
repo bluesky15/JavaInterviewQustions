@@ -1,0 +1,12 @@
+package com.lkb.basic.designpattern.observer.simple;
+
+class OctObserver extends Observer {
+    public OctObserver(Subject subject) {
+        this.subject = subject;
+        this.subject.add( this );
+    }
+
+    public void update() {
+        System.out.print(" Oct " + Integer.toOctalString(subject.getState()));
+    }
+}
