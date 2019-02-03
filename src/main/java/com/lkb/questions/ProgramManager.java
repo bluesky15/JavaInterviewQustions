@@ -10,6 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ProgramManager {
     public static final String REVERSE_ENGINE_SB = "API";
@@ -804,6 +805,16 @@ public class ProgramManager {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void stringToCharDemo(String str){
+//        char[] charArray = str.toCharArray();
+//        for(char c:charArray){
+//            System.out.println(c);
+//        }
+       // str.chars().mapToObj(c-> (char)c).forEach(System.out::println);
+        Stream<String> strStream = str.codePoints().mapToObj(c->String.valueOf((char) c));
+        strStream.forEach(System.out::println);
     }
 
 }
