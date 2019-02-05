@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -132,5 +133,14 @@ class ProgramManagerTest {
     void testgetMaxReapeatingChInString(){
         assertEquals('a',pm.getMaxRepeatCharCountInString("aabbaaccaa"));
         assertEquals('a',pm.getMaxRepeatCharCountInString("abc"));
+    }
+
+    @Test
+    @DisplayName("Test for Number count in an array")
+    void testGetNumberCuntInArray(){
+        HashMap<Integer,Integer> hmExpected = new HashMap<>();
+        hmExpected.put(1,2);
+        hmExpected.put(2,4);
+        assertEquals(hmExpected,pm.getNumberCuntInArray(new int[] {1,1,2,2,2,2}));
     }
 }

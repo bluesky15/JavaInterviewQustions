@@ -30,6 +30,24 @@ public class ProgramManager {
     }
 
     /**
+     * This method counts the Numbers in an array.
+     * @param nums
+     * @return
+     */
+    public HashMap<Integer,Integer> getNumberCuntInArray(int[] nums){
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int n :nums){
+            if(hm.get(n)!=null){
+                hm.put(n,hm.get(n)+1);
+            }else {
+                hm.put(n,1);
+            }
+
+        }
+        return hm;
+    }
+
+    /**
      * This method sort the strings in alphabetical order.
      *
      * @param list
@@ -456,7 +474,7 @@ public class ProgramManager {
      * @return
      */
     public boolean isAnagram(String str1, String str2) {
-        return ((str1
+        return str1
                 .replaceAll("\\s", "")
                 .toLowerCase()
                 .codePoints()
@@ -469,7 +487,7 @@ public class ProgramManager {
                         .codePoints()
                         .sorted()
                         .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                        .toString())));
+                        .toString());
     }
 
     /**
