@@ -22,7 +22,7 @@ public class ProgramManager {
     }
 
     // Its called lazy initialization.
-    synchronized public static ProgramManager getInstance() {
+    public static synchronized ProgramManager getInstance() {
         if (instance == null) {
             instance = new ProgramManager();
         }

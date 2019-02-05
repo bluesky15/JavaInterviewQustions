@@ -1,9 +1,10 @@
 package com.lkb.basic.abstractdemo;
 
 abstract class Animal {
-    public Animal(){
-
+    public Animal() {
     }
-    void noise(){};
-    void kind(){};
+
+    abstract void noise();
+
+    abstract void kind();
 }

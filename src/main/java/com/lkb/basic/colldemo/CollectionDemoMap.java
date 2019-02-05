@@ -1,6 +1,5 @@
 package com.lkb.basic.colldemo;
 
-import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.*;
 
