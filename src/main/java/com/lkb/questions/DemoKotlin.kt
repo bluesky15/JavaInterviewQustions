@@ -17,11 +17,19 @@ import kotlinx.coroutines.*
 //    }
 //}
 
-fun main()= runBlocking<Unit>{
-    val job = GlobalScope.launch {
+//fun main()= runBlocking<Unit>{
+//    val job = GlobalScope.launch {
+//        delay(1000L)
+//        println("world")
+//    }
+//    println("Hello")
+//    job.join()
+//}
+// better example
+fun main() = runBlocking { // this: CoroutineScope
+    launch { // launch new coroutine in the scope of runBlocking
         delay(1000L)
-        println("world")
+        println("World!")
     }
-    println("Hello")
-    job.join()
+    println("Hello,")
 }
