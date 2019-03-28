@@ -143,4 +143,11 @@ class ProgramManagerTest {
         hmExpected.put(2,4);
         assertEquals(hmExpected,pm.getNumberCuntInArray(new int[] {1,1,2,2,2,2}));
     }
+
+    @Test
+    @DisplayName("Test for checkTheFirstCharPresent array")
+    void testCheckTheFirstCharPresent(){
+        assertEquals(false,pm.checkTheFirstCharPresent("SS"));
+        assertEquals(true,pm.checkTheFirstCharPresent("as"));
+    }
 }

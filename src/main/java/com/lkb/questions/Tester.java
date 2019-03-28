@@ -104,6 +104,7 @@ public class Tester {
 //        pm.createFile("hello.txt","/Users/leo/projects/allprojects/", "Hello world!");
 //        ParkingSpace space = new ParkingSpace(new int[]{1,4,4,6});
 //        System.out.println(space.getAllSquareBlocks());
-        pm.stringToCharDemo("Hello world");
+        //pm.stringToCharDemo("Hello world")
+        pm.checkTheFirstCharPresent("ad");
     }
 }

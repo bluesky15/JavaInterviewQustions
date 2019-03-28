@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -31,16 +32,17 @@ public class ProgramManager {
 
     /**
      * This method counts the Numbers in an array.
+     *
      * @param nums
      * @return
      */
-    public HashMap<Integer,Integer> getNumberCuntInArray(int[] nums){
-        HashMap<Integer,Integer> hm = new HashMap<>();
-        for(int n :nums){
-            if(hm.get(n)!=null){
-                hm.put(n,hm.get(n)+1);
-            }else {
-                hm.put(n,1);
+    public HashMap<Integer, Integer> getNumberCuntInArray(int[] nums) {
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for (int n : nums) {
+            if (hm.get(n) != null) {
+                hm.put(n, hm.get(n) + 1);
+            } else {
+                hm.put(n, 1);
             }
 
         }
@@ -825,14 +827,42 @@ public class ProgramManager {
         }
     }
 
-    public void stringToCharDemo(String str){
+    public void stringToCharDemo(String str) {
 //        char[] charArray = str.toCharArray();
 //        for(char c:charArray){
 //            System.out.println(c);
 //        }
-       // str.chars().mapToObj(c-> (char)c).forEach(System.out::println);
-        Stream<String> strStream = str.codePoints().mapToObj(c->String.valueOf((char) c));
+        // str.chars().mapToObj(c-> (char)c).forEach(System.out::println);
+        Stream<String> strStream = str.codePoints().mapToObj(c -> String.valueOf((char) c));
         strStream.forEach(System.out::println);
+    }
+
+    public boolean checkTheFirstCharPresent(String s) {
+        // get the first char of the string
+
+        char c = s.charAt(0);
+
+        Pattern p = Pattern.compile(""+c);
+
+        List<String> list = new ArrayList<>();
+        list.add("ab");
+        list.add("ba");
+        list.add("cd");
+        list.add("fg");
+        list.add("to");
+        list.add("op");
+        list.add("pq");
+        list.add("rq");
+        list.add("mq");
+        list.add("kl");
+        list.add("li");
+        boolean s2 = list.stream().filter(e -> e.matches("[" + c + "][a-z]")).findAny().isPresent();
+        if (s2) {
+            return true;
+        } else {
+            list.add(s);
+            return false;
+        }
     }
 
 }
